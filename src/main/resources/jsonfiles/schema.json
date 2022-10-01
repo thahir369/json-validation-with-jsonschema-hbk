@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id+": "http://my-movie-api.com/schemas/movieSchema.json",
+  "type": "object",
+  "title": "Movie",
+  "description": "Movie information",
+  "additionalProperties": true,
+  "required": [
+    "movieName",
+    "director",
+    "producer",
+    "cast"
+  ],
+  "properties": {
+    "movieName": {
+      "type": "string",
+      "description": "Movie name"
+    },
+    "director": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Name of the director"
+    },
+    "producer": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Name of the producer"
+    },
+    "release": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Year of release"
+    },
+    "storyLine": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Movie storyLine"
+    },
+    "cast": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cast"
+      }
+    },
+    "genre": {
+      "type": "string",
+      "description": "Movie genre",
+      "enum": [
+        "rom-com",
+        "thriller",
+        "action",
+        "sci-fi"
+      ]
+    }
+  },
+  "$defs": {
+    "cast": {
+      "type": "string"
+    }
+  }
+}
